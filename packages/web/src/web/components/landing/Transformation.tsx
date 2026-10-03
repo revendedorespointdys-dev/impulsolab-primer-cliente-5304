@@ -24,7 +24,7 @@ export function Transformation() {
                 <span className={`display text-lg md:text-xl ${last ? "text-signal" : "text-signal-deep"}`} aria-hidden="true">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="display text-2xl md:text-3xl lg:text-4xl">{step}</span>
+                <span className="display text-2xl md:text-[clamp(1.25rem,2.7vw,2.25rem)]">{step}</span>
                 {!last && (
                   <span
                     aria-hidden="true"

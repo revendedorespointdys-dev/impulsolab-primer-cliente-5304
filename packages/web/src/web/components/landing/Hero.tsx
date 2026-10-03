@@ -1,27 +1,27 @@
 import { useState } from "react";
 import { CheckoutButton } from "./CheckoutButton";
 
-const COVER_SRC = "/ebook-cover.webp";
+const COVER_SRC = "/ebook-cover.png";
 
 function EbookCover() {
   const [missing, setMissing] = useState(false);
 
   if (missing) {
-    // Sin portada todavía: marco vacío reservado. Subí /public/ebook-cover.webp para mostrarla.
+    // Reservar el espacio sin generar una portada alternativa.
+    // Copiar la portada real en packages/web/public/ebook-cover.webp.
     return (
       <div
         aria-hidden="true"
-        className="mx-auto aspect-[3/4] w-[min(72vw,380px)] rounded-md border-2 border-dashed border-ink/30"
+        className="mx-auto aspect-[3/4] w-full max-w-[420px]"
       />
     );
   }
 
   return (
-    <div className="relative mx-auto w-[min(72vw,380px)]">
-      <span aria-hidden="true" className="absolute inset-0 translate-x-3 translate-y-3 rounded-md bg-signal" />
+    <div className="mx-auto w-full max-w-[420px]">
       <img
         src={COVER_SRC}
-        alt="Portada del ebook Conseguí tu primer cliente como asistente virtual"
+        alt="Portada del ebook Tu primer cliente como asistente virtual en 30 días"
         width={800}
         height={1067}
         fetchPriority="high"
@@ -40,7 +40,7 @@ export function Hero() {
         <div>
           <p className="label rise inline-flex items-center gap-2 rounded-full border border-ink/20 bg-paper px-3 py-1.5 text-[11px] tracking-[0.07em] text-ink-soft sm:text-xs sm:tracking-[0.14em]">
             <span className="size-2 rounded-full bg-signal" aria-hidden="true" />
-            Guía práctica + plan de 30 días
+            GUÍA PRÁCTICA + PLAN DE 30 DÍAS
           </p>
           <h1 className="display rise d1 mt-6 text-[2.6rem] sm:text-6xl lg:text-[4.6rem]">
             Conseguí tu primer cliente como{" "}
@@ -53,8 +53,8 @@ export function Hero() {
             Un sistema paso a paso para definir qué ofrecer, preparar tu servicio, encontrar potenciales clientes y
             empezar a vender sin perder meses improvisando.
           </p>
-          <div className="rise d3 mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-            <CheckoutButton>Quiero empezar ahora</CheckoutButton>
+          <div className="rise d3 mt-9 flex flex-col flex-wrap items-start gap-4 sm:flex-row sm:items-center">
+            <CheckoutButton>QUIERO EMPEZAR AHORA</CheckoutButton>
             <p className="flex items-baseline gap-2">
               <span className="text-ink-soft">
                 <span className="sr-only">Precio anterior: </span>

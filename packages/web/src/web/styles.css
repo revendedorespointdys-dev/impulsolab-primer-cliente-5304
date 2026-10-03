@@ -126,8 +126,8 @@
   --color-paper-2: #eae4d8;
   --color-ink: #15171a;
   --color-ink-soft: #4a4d52;
-  --color-signal: #ff5b1f;
-  --color-signal-deep: #c2410c;
+  --color-signal: #0F5B6E;
+  --color-signal-deep: #0F5B6E;
   --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
 }
@@ -153,7 +153,7 @@ body {
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
   min-height: 56px; padding: 0 1.6rem;
-  background: var(--color-signal); color: var(--color-ink);
+  background: var(--color-signal); color: #fff;
   border: 2px solid var(--color-ink); border-radius: 999px;
   font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: .95rem;
   box-shadow: 4px 4px 0 var(--color-ink);
@@ -169,8 +169,14 @@ body {
 
 }
 
-:focus-visible { outline: 3px solid var(--color-signal-deep); outline-offset: 3px; }
-.bg-ink :focus-visible { outline-color: var(--color-signal); }
+:focus-visible { outline: 3px solid #245963; outline-offset: 3px; }
+.bg-ink :focus-visible { outline-color: #80b7bf; }
+
+/* Keep accent text legible on graphite and text on petroleum backgrounds. */
+.bg-ink .text-signal { color: #80b7bf; }
+.bg-signal.text-ink,
+details[open] .group-open\:bg-signal { color: #fff; }
+#inicio h1 span[aria-hidden="true"] { opacity: .2; }
 
 .grain {
   background-image: radial-gradient(rgba(21,23,26,.07) 1px, transparent 1px);
